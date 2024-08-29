@@ -1,0 +1,24 @@
+@font-face {
+  font-family: 'SB M';
+  src: url(../public/SB\ M.otf);
+}
+
+body * {
+  font-family: 'SB M';
+}
+
+html, body {
+  margin: 0;
+  width: 100%;
+  display: flex;
+  background-color: white;
+}
+
+#root {
+  max-width: 480px;
+  width: 100%;
+  margin: 0 auto;
+  min-height: 100dvh;
+  box-shadow: rgba(100, 100, 100, .3) 0px 0px 29px 0px;
+  padding: 20px;
+}

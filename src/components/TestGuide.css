@@ -1,0 +1,39 @@
+.testGuide {
+  margin-top: 50px;
+  width: 95%;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: rgba(99, 99, 99, 0.3) 0px 0px 30px 0px;
+  font-size: 18px;
+  border-radius: 20px;
+}
+
+.testGuide > img {
+  width: 130px;
+  margin: 0 0 -35px 10px;
+}
+
+.testGuide > h2 {
+  color: crimson;
+}
+
+.reTest {
+  margin-top: 50px;
+  width: 95%;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: rgba(99, 99, 99, 0.3) 0px 0px 30px 0px;
+  font-size: 18px;
+  border-radius: 20px;
+}
+
+.reTest > img {
+  width: 130px;
+  margin: -5px 0 0px 10px;
+}

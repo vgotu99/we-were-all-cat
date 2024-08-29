@@ -1,0 +1,43 @@
+.feedback {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+}
+
+.feedback_nickname_box {
+  display: flex;
+  flex-direction: row;
+
+  width: calc(90% + 15px);
+  margin-top: 20px;
+}
+
+.feedback_nickname_box > input {
+  width: 145px;
+  padding: 5px 15px;
+  font-size: 15px;
+  border-radius: 10px;
+  border: 1px solid rgba(0, 0, 0, .3);
+  margin-right: 15px;
+}
+
+.feedback_nickname_box > input::placeholder {
+  font-size: 14px;
+}
+
+.feedback > textarea {
+  margin: 10px 0 -7px;
+  resize: none;
+  width: calc(90% - 15px);
+  height: 150px;
+  padding: 15px;
+  font-size: 15px;
+  border-radius: 20px;
+  border: 1px solid rgba(0, 0, 0, .3);
+}
+
+.feedback > textarea::placeholder {
+  text-align: center;
+  font-size: 14px;
+}

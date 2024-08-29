@@ -1,0 +1,28 @@
+.result {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.result_img,
+.result_img > img {
+  margin-top: 10px;
+  width: 100%;
+}
+
+.background_paw {
+  width: 100%;
+  height: 130px;
+  display: flex;
+  justify-content: end;
+  margin-top: -30px;
+}
+
+.background_paw > img {
+  height: 100%;
+}
+
+.result_text {
+  margin-top: -80px;
+}
