@@ -11,9 +11,9 @@
   border-radius: 20px;
 }
 
-.testGuide > img {
-  width: 130px;
-  margin: 0 0 -35px 10px;
+.testGuide_emoji {
+font-size: 44px;
+margin-bottom: -10px;
 }
 
 .testGuide > h2 {

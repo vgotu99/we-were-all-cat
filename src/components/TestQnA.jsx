@@ -34,7 +34,7 @@ const TestQnA = ({
 
   if (reTestData && reTestData.length > 0) {
     return (
-      <div className="reTestQnA">
+      <div className="testQnA">
         {reTestData.map((reData) => (
           <div key={reData.reId} className="testQnA_content">
             <div className="question_box">

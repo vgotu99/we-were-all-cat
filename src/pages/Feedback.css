@@ -3,6 +3,8 @@
   flex-direction: column;
   align-items: center;
   gap: 0;
+  padding: 0 15px;
+
 }
 
 .feedback_nickname_box {
@@ -30,11 +32,15 @@
   margin: 10px 0 -7px;
   resize: none;
   width: calc(90% - 15px);
-  height: 150px;
+  height: 220px;
   padding: 15px;
   font-size: 15px;
   border-radius: 20px;
   border: 1px solid rgba(0, 0, 0, .3);
+}
+
+.feedback > textarea:focus , .feedback_nickname_box > input:focus {
+  outline: none;
 }
 
 .feedback > textarea::placeholder {

@@ -19,7 +19,7 @@ const Home = () => {
   const [userType, setUserType] = useState("");
   const nav = useNavigate();
 
-  const handleAnswerClick = async (questionId, answer) => {
+  const handleAnswerClick = (questionId, answer) => {
     const newUserAnswers = {
       questionId,
       answer,
@@ -54,20 +54,6 @@ const Home = () => {
         switchMainView("reTest");
       } else {
         switchMainView("submit");
-      }
-
-      try {
-        for (const userAnswer of updateUserAnswer) {
-          const questionRef = doc(
-            db,
-            "questions",
-            userAnswer.questionId.toString()
-          );
-
-          await updateDoc(questionRef, { [userAnswer.answer]: increment(1) });
-        }
-      } catch (error) {
-        console.error("Error updating document: ", error);
       }
     }
   };
@@ -122,89 +108,69 @@ const Home = () => {
       resultData = `${userAnswer[0].answer},${userAnswer[1].answer},${userAnswer[2].answer},${userAnswer[3].answer}`;
     }
 
-    // 1 => A: E, B: I
-    // 2 => A: S, B: N
-    // 3 => A: T, B: F
-    // 4 => A: J, B: P
     let updateUserType = "";
 
     if (resultData === "answerA,answerA,answerA,answerA") {
-      // ESTJ
       setUserType("A");
       updateUserType = "A";
     }
     if (resultData === "answerA,answerA,answerA,answerB") {
-      // ESTP
       setUserType("B");
       updateUserType = "B";
     }
     if (resultData === "answerA,answerA,answerB,answerA") {
-      // ESFJ
       setUserType("C");
       updateUserType = "C";
     }
     if (resultData === "answerA,answerA,answerB,answerB") {
-      // ESFP
       setUserType("D");
       updateUserType = "D";
     }
     if (resultData === "answerA,answerB,answerA,answerA") {
-      // ENTJ
       setUserType("E");
       updateUserType = "E";
     }
     if (resultData === "answerA,answerB,answerA,answerB") {
-      // ENTP
       setUserType("F");
       updateUserType = "F";
     }
     if (resultData === "answerA,answerB,answerB,answerA") {
-      // ENFJ
       setUserType("G");
       updateUserType = "G";
     }
     if (resultData === "answerA,answerB,answerB,answerB") {
-      // ENFP
       setUserType("H");
       updateUserType = "H";
     }
     if (resultData === "answerB,answerA,answerA,answerA") {
-      // ISTJ
       setUserType("I");
       updateUserType = "I";
     }
     if (resultData === "answerB,answerA,answerA,answerB") {
-      // ISTP
       setUserType("J");
       updateUserType = "J";
     }
     if (resultData === "answerB,answerA,answerB,answerA") {
-      // ISFJ
       setUserType("K");
       updateUserType = "K";
     }
     if (resultData === "answerB,answerA,answerB,answerB") {
-      // ISFP
       setUserType("L");
       updateUserType = "L";
     }
     if (resultData === "answerB,answerB,answerA,answerA") {
-      // INTJ
       setUserType("M");
       updateUserType = "M";
     }
     if (resultData === "answerB,answerB,answerA,answerB") {
-      // INTP
       setUserType("N");
       updateUserType = "N";
     }
     if (resultData === "answerB,answerB,answerB,answerA") {
-      // INFJ
       setUserType("O");
       updateUserType = "O";
     }
     if (resultData === "answerB,answerB,answerB,answerB") {
-      // INFP
       setUserType("P");
       updateUserType = "P";
     }
@@ -259,14 +225,16 @@ const Home = () => {
         );
       case "submit":
         return (
-          <div style={{ textAlign: "center" }}>
+          <div style={{ textAlign: "center", marginTop:'20px' }}>
+            <div style={{backgroundColor: 'black', width: '100%', padding: '7% 0', borderRadius: '10px', marginBottom: '20px', display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
             <img
-              src="/main.jpg"
-              style={{ width: "100%", marginBottom: "20px" }}
+              src="/submit.png"
+              style={{ width: "95%"}}
             />
+            </div>
             <Button
               onClick={goToResult}
-              type={"end_test"}
+              type={"main"}
               text={"과거 냥생 확인하기"}
             />
           </div>

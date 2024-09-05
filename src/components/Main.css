@@ -8,10 +8,21 @@
   margin-top: 10px;
 }
 
-.main > img {
+.main_img {
   width: 100%;
-  border: 2px solid black;
+  padding: 7% 0;
+  background-color: black;
+  border-radius: 10px;
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   margin-bottom: 20px;
+}
+
+.main_img > img {
+  width: 95%;
+  border-radius: 10px;
 }
 
 .main > p {
@@ -20,8 +31,5 @@
 
 .test_start_text {
   font-size: 14px;
-  color: rgb(179,179,179);
-  text-shadow: 0px 0.7px rgb(99, 99, 99), 0.7px 0px rgb(99, 99, 99);
-
-
+  color: rgb(159,159,159);
 }

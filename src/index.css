@@ -1,13 +1,21 @@
 @font-face {
-  font-family: 'SB M';
-  src: url(../public/SB\ M.otf);
+  font-family: "SB";
+  src: url(/SB\ L.otf) format("opentype");
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: "SB";
+  src: url(/SB\ M.otf) format("opentype");
+  font-weight: bold;
 }
 
 body * {
-  font-family: 'SB M';
+  font-family: "SB";
 }
 
-html, body {
+html,
+body {
   margin: 0;
   width: 100%;
   display: flex;
@@ -19,6 +27,5 @@ html, body {
   width: 100%;
   margin: 0 auto;
   min-height: 100dvh;
-  box-shadow: rgba(100, 100, 100, .3) 0px 0px 29px 0px;
-  padding: 20px;
+  box-shadow: rgba(100, 100, 100, 0.3) 0px 0px 29px 0px;
 }

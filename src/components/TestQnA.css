@@ -1,20 +1,22 @@
 .testQnA {
   width: 100%;
+  height: 80dvh;
   display: flex;
   flex-direction: column;
-  margin-top: 20px;
 }
 
 .question_box {
   width: 100%;
   height: 45px;
+  margin-bottom: 5px;
 }
 
 .testQnA_content {
   display: flex;
   flex-direction: column;
+  margin: auto 0;
 }
 
-.testQnA_content > div {
+.question_box > div {
   font-size: 18px;
 }

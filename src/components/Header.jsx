@@ -8,20 +8,25 @@ const Header = ({ switchMainView }) => {
   const onClickHeader = () => {
     nav("/");
 
-    if (loc.pathname === '/') {
+    if (loc.pathname === "/") {
       switchMainView("main");
     }
   };
 
   return (
     <div onClick={onClickHeader} className="header">
-      <div className="header_point_font">우</div>
-      <p>리는</p>
-      <div className="header_point_font">모</div>
-      <p>두</p>
-      <img src="/paw.png" />
-      <div className="header_point_font">고</div>
-      <p>양이였다</p>
+      <div className="header_title">
+        <div className="header_point_font">우</div>
+        <p>리는</p>
+        <div className="header_point_font">모</div>
+        <p>두</p>
+        <img src="/paw.png" />
+        <div className="header_point_font">고</div>
+        <p>양이였다</p>
+      </div>
+      <div className="header_url">
+        <div>https://woomogo.vercel.app</div>
+      </div>
     </div>
   );
 };
