@@ -1,8 +1,18 @@
-# React + Vite
+# 우모고 | 우리는 모두 고양이였다. (woomogo)<br/><br/>🔗 https://woomogo.vercel.app
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 프로젝트 소개
+- 우모고는 사용자의 성격 유형을 분석하여 고양이와 매칭하고 해당 고양이의 재치있고 귀여운 이미지와 성격을 보여주는 웹 서비스입니다.
+- 사용자 친화적인 UI/UX를 제공함으로써 사용자는 가벼운 마음으로 우모고 서비스를 접하고 웃음이 나오는 결과를 받아볼 수 있습니다.
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 기술스택
+- **프론트엔드**: React
+- **데이터베이스**: Firebase(Firestore)
+- **분석 도구**: Vercel Analytics, Google Analytics
+- **배포**: Vercel
+  
+## 향후 업데이트
+- [ㅤ]업데이트 페이지 추가
+- [ㅤ]업데이트 페이지 내에 받았던 피드백과 수정된 내역 추가
+- [ㅤ]16가지의 결과 -> 32가지의 결과로 세분화<br/>
+ㅤㅤㅤ└─> [ㅤ]이는 사용자에게 더 많은 질문에 대한 답을 요구하기에 방법을 고안해보고 진행<br/>
+ㅤㅤㅤ└─> [ㅤ]이미 사용자들에게 여러번 노출된 기존 이미지를 삭제하고 전부 새로운 이미지로 변경
