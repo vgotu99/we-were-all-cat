@@ -7,31 +7,32 @@ import { db } from "../../Auth - Do Not Upload/firebase";
 
 const Feedback = () => {
   const [feedbackText, setFeedbackText] = useState("");
-  const [message, setMessage] = useState("ㅤ\nㅤ");
+  const [message, setMessage] = useState("ㅤ");
+  const [nickname, setNickname] = useState("");
 
   const handleSubmitFeedback = async () => {
     if (feedbackText.trim().replaceAll(" ", "") === "") {
       setMessage(
-        "피드백 내용이 입력되지 않았습니다.\n내용을 입력 후 제출해주세요 !"
+        "내용이 입력되지 않았습니다. 내용을 입력 후 제출해주세요 !"
       );
       setTimeout(() => {
-        setMessage("ㅤ\nㅤ");
+        setMessage("ㅤ");
       }, 3000);
     }
 
-    if (
-      feedbackText.trim().replaceAll(" ", "") !== ""
-    ) {
+    if (feedbackText.trim().replaceAll(" ", "") !== "") {
       try {
         await addDoc(collection(db, "feedbacks"), {
+          nickname: nickname,
           feedbacks: feedbackText,
           writeTime: serverTimestamp(),
         });
         setFeedbackText("");
-        setMessage("피드백이 제출되었습니다.\n관심 가져주셔서 감사드립니다 !");
+        setNickname("");
+        setMessage("정상적으로 제출되었습니다. 관심 가져주셔서 감사드립니다 !");
 
         setTimeout(() => {
-          setSuccessMessage("ㅤ\nㅤ");
+          setMessage("ㅤ");
         }, 3000);
       } catch (error) {
         console.error("Error submitting feedback: ", error);
@@ -43,10 +44,22 @@ const Feedback = () => {
     <div className="feedback">
       <Header />
       <br />
-      <div>우모고를 이용해주시고</div>
-      <div>관심 가져주셔 감사드립니다.</div>
-      <div>저에게 전하고 싶으신 내용을</div>
-      <div>자유롭게 작성 후 제출해주세요.</div>
+      <div className="feedback_guide">
+        <div>우모고를 이용해주시고</div>
+        <div>관심 가져주셔 감사드립니다.</div>
+        <div>저에게 전하고 싶으신 내용을</div>
+        <div>자유롭게 작성 후 제출해주세요.</div>
+      </div>
+      <div className="feedback_nicknameBox">
+        <input
+          onChange={(e) => setNickname(e.target.value)}
+          value={nickname}
+          type="text"
+          placeholder="닉네임을 입력해주세요."
+          maxLength={"10"}
+        />
+        <div>＜ 미입력 시 익명으로 처리됩니다.</div>
+      </div>
       <textarea
         value={feedbackText}
         onChange={(e) => setFeedbackText(e.target.value)}
@@ -54,7 +67,7 @@ const Feedback = () => {
       />
       {message && (
         <pre
-          style={{ fontSize: "13px", color: "crimson", textAlign: "center" }}
+          style={{ fontSize: "12px", color: "crimson", textAlign: "center" }}
         >
           {message}
         </pre>

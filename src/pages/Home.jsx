@@ -226,10 +226,10 @@ const Home = () => {
       case "submit":
         return (
           <div style={{ textAlign: "center", marginTop:'20px' }}>
-            <div style={{backgroundColor: 'black', width: '100%', padding: '7% 0', borderRadius: '10px', marginBottom: '20px', display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
+            <div style={{width: '100%', margin: '20px 0 15px 0', display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
             <img
               src="/submit.png"
-              style={{ width: "95%"}}
+              style={{ width: "100%"}}
             />
             </div>
             <Button

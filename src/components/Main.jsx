@@ -7,7 +7,8 @@ import { doc, getDoc } from "firebase/firestore";
 import { initializeKakao } from "../../Auth - Do Not Upload/kakao";
 
 const Main = ({ switchMainView }) => {
-  const [totalUser, setTotalUser] = useState(0)
+  const [totalUser, setTotalUser] = useState(0);
+  const [copyButtonText, setCopyButtonText] = useState("링크 복사하기");
   const nav = useNavigate();
 
   useEffect(() => {
@@ -24,7 +25,6 @@ const Main = ({ switchMainView }) => {
             0
           );
           setTotalUser(totalSumValue);
-
         } else {
           console.log("no such document");
         }
@@ -32,12 +32,8 @@ const Main = ({ switchMainView }) => {
         console.error("Error fetching document: ", error);
       }
     };
-
-    fetchData();
-  }, []);
-
-  useEffect(() => {
     initializeKakao();
+    fetchData();
   }, []);
 
   const handleShareUrl = () => {
@@ -48,7 +44,7 @@ const Main = ({ switchMainView }) => {
         description:
           "우리는 모두 고양이였다는 사실!!\n과거 냥생 시절 모습을 확인해보세요!",
         imageUrl:
-          "https://github.com/user-attachments/assets/e49a4450-2b3a-4307-81c3-593d84a754bb",
+          "https://github.com/vgotu99/woomogo/blob/main/kakaoLink_img/result_main.png?raw=true",
         link: {
           mobileWebUrl: "https://woomogo.vercel.app",
           webUrl: "https://woomogo.vercel.app",
@@ -66,6 +62,16 @@ const Main = ({ switchMainView }) => {
     });
   };
 
+  const copyUrl = () => {
+    const link = "https://woomogo.vercel.app";
+    navigator.clipboard.writeText(link).then(() => {
+      setCopyButtonText("복사되었어요!");
+      setTimeout(() => {
+        setCopyButtonText("링크 복사하기");
+      }, 3000);
+    });
+  };
+
   return (
     <div className="main">
       <div className="main_img">
@@ -80,7 +86,12 @@ const Main = ({ switchMainView }) => {
       />
       <p className="test_start_text">😺 과거로 이동하기 버튼을 눌러주세요!</p>
       <div>👏 지금까지 {totalUser}명이 과거 냥생을 확인했어요!</div>
-      <Button onClick={handleShareUrl} type={"main"} text={"카톡으로 링크 공유하기"} />
+      <Button onClick={copyUrl} type={"main"} text={copyButtonText} />
+      <Button
+        onClick={handleShareUrl}
+        type={"main"}
+        text={"카톡으로 우모고 공유하기"}
+      />
       <Button
         onClick={() => nav("/feedback")}
         type={"main"}

@@ -67,7 +67,7 @@ export const typeData = [
     species: "코리안숏헤어(치즈)",
     description1: "처음 보는 고양이에게도 친근하게 먼저 다가가요.",
     description2: "호기심이 많아 광범위한 관심사에 열정적이에요.",
-    description3: "다른 고양이들에게 본능적으로 인정받는 리더가 되기도 해요.",
+    description3: "다른 고양이들로부터 본능적으로 리더로 인정받기도 해요.",
     matchSpecies: "러시안블루",
     matchType: "O",
   },

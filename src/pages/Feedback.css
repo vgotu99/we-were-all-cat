@@ -4,46 +4,62 @@
   align-items: center;
   gap: 0;
   padding: 0 15px;
-
 }
 
-.feedback_nickname_box {
+.feedback_guide {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 3px;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.feedback_nicknameBox {
   display: flex;
   flex-direction: row;
-
-  width: calc(90% + 15px);
-  margin-top: 20px;
+  align-items: center;
+  justify-content: start;
+  gap: 5px;
+  width: calc(100% - 15px);
+  margin: 20px 0 -20px;
 }
 
-.feedback_nickname_box > input {
-  width: 145px;
-  padding: 5px 15px;
-  font-size: 15px;
-  border-radius: 10px;
-  border: 1px solid rgba(0, 0, 0, .3);
-  margin-right: 15px;
-}
-
-.feedback_nickname_box > input::placeholder {
+.feedback_nicknameBox > input {
+  width: 126px;
   font-size: 14px;
+  padding: 15px 20px;
+  border-radius: 15px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.feedback_nicknameBox > input::placeholder {
+  font-size: 13px;
+}
+
+.feedback_nicknameBox > div {
+  font-size: 11px;
+  color: rgba(0, 0, 0, .3);
 }
 
 .feedback > textarea {
-  margin: 10px 0 -7px;
+  margin: 35px 0 -5px;
   resize: none;
   width: calc(90% - 15px);
-  height: 220px;
-  padding: 15px;
-  font-size: 15px;
+  height: 240px;
+  padding: 20px;
+  font-size: 14px;
   border-radius: 20px;
-  border: 1px solid rgba(0, 0, 0, .3);
+  border: 1px solid rgba(0, 0, 0, 0.2);
 }
 
-.feedback > textarea:focus , .feedback_nickname_box > input:focus {
+.feedback > textarea:focus,
+.feedback_nicknameBox > input:focus {
   outline: none;
 }
 
 .feedback > textarea::placeholder {
   text-align: center;
-  font-size: 14px;
+  font-size: 13px;
 }

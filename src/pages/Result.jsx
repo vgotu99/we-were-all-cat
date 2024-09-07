@@ -43,13 +43,9 @@ const Result = () => {
         console.error("Error fetching document: ", error);
       }
     };
-
+    initializeKakao();
     fetchData();
   }, [type]);
-
-  useEffect(() => {
-    initializeKakao();
-  }, []);
 
   const typeValueResult =
     typeValue && totalTypeValue
@@ -61,88 +57,34 @@ const Result = () => {
   const handleSaveImage = () => {
     const resultSaveBox = resultSaveBoxRef.current;
 
-    html2canvas(resultSaveBox).then((canvas) => {
-      canvas.toBlob((blob) => {
-        saveAs(blob, `우모고_${type}타입.png`);
-      }, "image/png");
-    });
+    html2canvas(resultSaveBox)
+      .then((canvas) => {
+        if (typeof canvas.toBlob === "function") {
+          canvas.toBlob((blob) => {
+            saveAs(blob, `우모고_${type}타입.png`);
+          }, "image/png");
+        } else {
+          const dataUrl = canvas.toDataURL("image/png");
+          const link = document.createElement("a");
+          link.href = dataUrl;
+          link.download = `우모고_${type}타입.png`;
+          link.click();
+        }
+      })
+      .catch((error) => {
+        console.error("html2canvas 처리 실패:", error);
+      });
   };
 
   const handleShareImage = () => {
-    let imageUrlType = "";
-
-    if (type === "A") {
-      imageUrlType =
-        "https://github.com/user-attachments/assets/a2bd98d2-21fb-4e78-91b9-f59595a6fb2f";
-    }
-    if (type === "B") {
-      imageUrlType =
-        "https://github.com/user-attachments/assets/a72dbd63-7f29-4ef5-8d7a-a6e7606ef945";
-    }
-    if (type === "C") {
-      imageUrlType =
-        "https://github.com/user-attachments/assets/06421932-2c88-45ea-8a52-26415dee6fc5";
-    }
-    if (type === "D") {
-      imageUrlType =
-        "https://github.com/user-attachments/assets/fb825a90-bfd4-4043-ba3c-7b58996b5c92";
-    }
-    if (type === "E") {
-      imageUrlType =
-        "https://github.com/user-attachments/assets/e11bf7d3-556a-4789-b5f3-5ea71ef773a8";
-    }
-    if (type === "F") {
-      imageUrlType =
-        "https://github.com/user-attachments/assets/8bb39d60-cd35-480f-98ca-a1c158d2007a";
-    }
-    if (type === "G") {
-      imageUrlType =
-        "https://github.com/user-attachments/assets/25ae125c-3190-4c80-8977-27609cfa3c10";
-    }
-    if (type === "H") {
-      imageUrlType =
-        "https://github.com/user-attachments/assets/afb0fd47-7ec5-4dde-916c-f863bd1b50ef";
-    }
-    if (type === "I") {
-      imageUrlType =
-        "https://github.com/user-attachments/assets/cf414f68-d27c-4f86-b6c1-4ae83f1127b0";
-    }
-    if (type === "J") {
-      imageUrlType =
-        "https://github.com/user-attachments/assets/7e7b9b3a-4970-41bb-879d-52b76d6f08e6";
-    }
-    if (type === "K") {
-      imageUrlType =
-        "https://github.com/user-attachments/assets/ef35664d-3c54-4494-9f91-87cdb1c9c6ae";
-    }
-    if (type === "L") {
-      imageUrlType =
-        "https://github.com/user-attachments/assets/d41b6c4d-dae1-4759-8a9e-22bdf35ea226";
-    }
-    if (type === "M") {
-      imageUrlType =
-        "https://github.com/user-attachments/assets/d1a26ba4-0b6c-49a4-b6d9-0d8a28b0fb1b";
-    }
-    if (type === "N") {
-      imageUrlType =
-        "https://github.com/user-attachments/assets/2d8d1536-46b1-4049-bf4c-5f03fa02a87e";
-    }
-    if (type === "O") {
-      imageUrlType =
-        "https://github.com/user-attachments/assets/c8396d63-cb17-4506-9d56-e7a3356978ca";
-    }
-    if (type === "P") {
-      imageUrlType =
-        "https://github.com/user-attachments/assets/f022f7ac-da6b-4a38-a919-02baa83703c9";
-    }
-
+    console.log(type)
     window.Kakao.Link.sendDefault({
       objectType: "feed",
       content: {
-        title: "우리는 모두 고양이였다",
+        title: "우모고 | 우리는 모두 고양이였다",
         description:
           "우리는 모두 고양이였다는 사실!!\n과거 냥생 시절 모습을 확인해보세요!",
-        imageUrl: imageUrlType,
+        imageUrl: `https://github.com/vgotu99/woomogo/blob/main/kakaoLink_img/result_${type}.png?raw=true`,
         link: {
           mobileWebUrl: "https://woomogo.vercel.app",
           webUrl: "https://woomogo.vercel.app",
@@ -209,12 +151,12 @@ const Result = () => {
       <Button
         onClick={handleSaveImage}
         type={"main"}
-        text={"이미지 저장하기"}
+        text={"이미지로 결과 저장하기"}
       />
       <Button
         onClick={handleShareImage}
         type={"main"}
-        text={"카톡으로 이미지 공유하기"}
+        text={"카톡으로 결과 공유하기"}
       />
     </div>
   );

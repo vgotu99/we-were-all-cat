@@ -35,15 +35,15 @@ const TestGuide = ({ switchMainView, setUserAnswer, curView, tieAnswer, setTieAn
     return (
       <div className="reTest">
         <img src="/caution.png" />
-        <div>내가 분명 고양이적 사고로</div>
-        <div>답변을 고르라고 했을텐데?!</div>
+        <div>엇,,, 깜짝이야</div>
+        <div>너 왜 여기로 왔니..?</div>
         <br />
-        <div>너는 아직 과거로의 이동에</div>
-        <div>집중하지 못한 것 같아..</div>
+        <div>아~ 너는 아직 고양이적 사고에</div>
+        <div>동화되지 못한 것 같아!</div>
         <div>인간이 잘 이해할 수 있는</div>
         <div>새로운 질문을 {tieAnswer.length}개 줄게 !</div>
-        <div>다시 답변해봐 !</div>
-        <Button onClick={goToReTest} type={"main"} text={"어.. 알겠어..!"} />
+        <div>다시 천천히 답변해봐 !</div>
+        <Button onClick={goToReTest} type={"main"} text={"어! 알겠어!"} />
       </div>
     );
   }
